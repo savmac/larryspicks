@@ -8,8 +8,36 @@
 	<div><%= render "form" %></div>
 <% end %>
 
-<ul>
-	<% @teams.each do |team| %>
-		<li><%= team.type %> - <%= link_to team.name, team %></li>
-	<% end %>
-</ul>
+<div class="row">
+	<div class="panel panel-default" id="tables">
+		<div class="panel-heading">
+			Teams:
+		</div>
+		<div class="panel-body">
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>Sport</th>
+						<th>Team Location</th>
+						<th>Team Name</th>
+						<th>Abbreviation</th>
+						<th></th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<% @teams.each do |team| %>
+						<tr>
+							<td><%= team.type.titleize %></td>
+							<td><%= team.city %></td>
+							<td><%= link_to team.name, team %></td>
+							<td><%= team.abbreviation %></td>
+							<td><%= link_to "edit", "#{team.type.underscore}/#{team.id}/edit" %></td>
+							<td><%= link_to "delete", "#{team.type.underscore}/#{team.id}", method: :delete, confirm: "Are you sure?" %></td>
+						</tr>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
