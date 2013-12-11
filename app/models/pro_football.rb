@@ -1,0 +1,3 @@
+class ProFootball < Team
+
+end

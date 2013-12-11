@@ -1,0 +1,15 @@
+<div>
+	<%= link_to "All Teams", teams_path %>
+	<%= link_to "MLB", pro_baseball_index_path %>
+	<%= link_to "NFL", pro_football_index_path %>
+</div>
+
+<% if params[:type] != nil %>
+	<div><%= render "form" %></div>
+<% end %>
+
+<ul>
+	<% @teams.each do |team| %>
+		<li><%= team.type %> - <%= link_to team.name, team %></li>
+	<% end %>
+</ul>

@@ -1,0 +1,3 @@
+class ProBaseball < Team
+
+end

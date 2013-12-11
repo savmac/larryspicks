@@ -1,4 +1,11 @@
 Larryspicks::Application.routes.draw do
+
+  root 'teams#index'
+
+  resources :teams
+  resources :pro_baseball, controller: 'teams', type: 'ProBaseball'
+  resources :pro_football, controller: 'teams', type: 'ProFootball'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
