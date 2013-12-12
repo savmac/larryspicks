@@ -34,7 +34,7 @@
 				<tbody>
 					<% @teams.each do |team| %>
 						<tr>
-							<td><%= link_to team.type.titleize, "/#{team.type.underscore}" %></td>
+							<td><%= link_to sport_alias(team.type), "/#{team.type.underscore}" %></td>
 							<td><%= link_to team.city, team %></td>
 							<td><%= link_to team.name, team %></td>
 							<td><%= link_to team.abbreviation, team %></td>

@@ -8,4 +8,11 @@ module ApplicationHelper
 			when :error then "alert alert-danger"
 		end
 	end
+
+	def sport_alias(sport)
+		case sport
+			when "ProFootball" then "NFL"
+			when "ProBaseball" then "MLB"
+		end
+	end
 end
