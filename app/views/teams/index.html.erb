@@ -1,11 +1,16 @@
-<div>
-	<%= link_to "All Teams", teams_path %>
-	<%= link_to "MLB", pro_baseball_index_path %>
-	<%= link_to "NFL", pro_football_index_path %>
-</div>
-
 <% if params[:type] != nil %>
 	<div><%= render "form" %></div>
+<% else %>
+	<div class="jumbotron">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12 col-lg-12">
+					<h1>Welcome to Larry's Picks</h1>
+					<p>take Vegas to the cleaners...</p>
+				</div>
+			</div>
+		</div>
+	</div>
 <% end %>
 
 <div class="row">
@@ -13,7 +18,7 @@
 		<div class="panel-heading">
 			Teams:
 		</div>
-		<div class="panel-body">
+		<div class="panel-body table-responsive">
 			<table class="table table-striped">
 				<thead>
 					<tr>
@@ -21,6 +26,7 @@
 						<th>Team Location</th>
 						<th>Team Name</th>
 						<th>Abbreviation</th>
+						<th>Next Game</th>
 						<th></th>
 						<th></th>
 					</tr>
@@ -28,12 +34,13 @@
 				<tbody>
 					<% @teams.each do |team| %>
 						<tr>
-							<td><%= team.type.titleize %></td>
-							<td><%= team.city %></td>
+							<td><%= link_to team.type.titleize, "/#{team.type.underscore}" %></td>
+							<td><%= link_to team.city, team %></td>
 							<td><%= link_to team.name, team %></td>
-							<td><%= team.abbreviation %></td>
-							<td><%= link_to "edit", "#{team.type.underscore}/#{team.id}/edit" %></td>
-							<td><%= link_to "delete", "#{team.type.underscore}/#{team.id}", method: :delete, confirm: "Are you sure?" %></td>
+							<td><%= link_to team.abbreviation, team %></td>
+							<td></td>
+							<td><%= link_to "edit", edit_team_path(team) %></td>
+							<td><%= link_to "delete", team_path(team), method: :delete, confirm: "Are you sure?" %></td>
 						</tr>
 					<% end %>
 				</tbody>

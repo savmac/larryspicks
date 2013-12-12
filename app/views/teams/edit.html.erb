@@ -2,7 +2,7 @@
 	<div class="col-md-6">
 		<div class="panel panel-default" id="forms">
 			<div class="panel-heading">
-				<h3 class="panel-title">Edit <%= @sport.titleize %> team:</h2>
+				<h3 class="panel-title">Edit <%= @sport.titleize %>:</h2>
 			</div>
 			<div class="panel-body">
 				<%= form_for(@team, html: {role: "form"}) do |form| %>
@@ -18,7 +18,7 @@
 						<%= form.label :abbreviation %>
 						<%= form.text_field :abbreviation, class: "form-control",  placeholder: "ex: DEN" %>
 					</div>
-					<%= form.submit "Edit Team"%>
+					<%= form.submit "Edit Team", class: "btn btn-success" %>
 				<% end %>
 			</div>
 		</div>

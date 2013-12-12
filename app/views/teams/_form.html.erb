@@ -1,9 +1,15 @@
 <div class="row">
-	<div class="col-md-6">
-		<div class="panel panel-default" id="forms">
-			<div class="panel-heading">
-				<h3 class="panel-title">Add a new <%= @sport.titleize %> team:</h2>
-			</div>
+	<div class="panel panel-default" id="forms">
+
+		<div class="panel-heading">
+			<h3 class="panel-title">
+				<a data-toggle="collapse" data-parent="#accordion" href="#collapseForm">
+					Add a new <%= @sport.titleize %> team
+				</a>
+			</h3>
+		</div>
+
+		<div id="collapseForm" class="panel-collapse collapse">
 			<div class="panel-body">
 				<%= form_for(@team, url: "#{@sport.underscore}", html: {role: "form"}) do |form| %>
 					<div class="form-group">
@@ -18,9 +24,10 @@
 						<%= form.label :abbreviation %>
 						<%= form.text_field :abbreviation, class: "form-control",  placeholder: "ex: DEN" %>
 					</div>
-					<%= form.submit "Add Team"%>
+					<%= form.submit "Add Team", class: "btn btn-success" %>
 				<% end %>
 			</div>
 		</div>
+
 	</div>
 </div>

@@ -6,6 +6,10 @@ class TeamsController < ApplicationController
 		@team = sport_class.new
 	end
 
+	def show
+		@team = sport_class.find(params[:id])
+	end
+
 	def create
 		@team = sport_class.new(team_params)
 		if @team.save
